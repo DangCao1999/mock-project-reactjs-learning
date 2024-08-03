@@ -41,11 +41,11 @@ export class ModalCreateOrUpdate extends React.Component {
 
     handleSubmit = async () => {
         if (this.state.isUpdate) {
-            await await updateStudent(this.state.id, this.state.name, this.state.phone).then(async () => {
+            await await updateStudent(this.state.id, this.state.name, this.state.phone).then(() => {
                 this.props.handleClose(true);
             });
         } else {
-            await createStudent(this.state.id, this.state.name, this.state.phone).then(async () => {
+            await createStudent(this.state.id, this.state.name, this.state.phone).then(() => {
                 this.props.handleClose(true);
             });
         }
@@ -74,6 +74,7 @@ export class ModalCreateOrUpdate extends React.Component {
                         <Form.Group className="mb-3" controlId="form.name">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
+                                data-testid="studendNameInput"
                                 type="text"
                                 placeholder="student name"
                                 value={this.state.name}
@@ -83,6 +84,7 @@ export class ModalCreateOrUpdate extends React.Component {
                         <Form.Group className="mb-3" controlId="form.phone">
                             <Form.Label>Phone</Form.Label>
                             <Form.Control
+                                data-testid="studendPhoneInput"
                                 type="text"
                                 placeholder="student phone number"
                                 value={this.state.phone}
