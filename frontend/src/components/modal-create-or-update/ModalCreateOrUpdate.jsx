@@ -8,7 +8,7 @@ export class ModalCreateOrUpdate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isUpdate: this.props.id !== undefined || this.props.id !== null,
+            isUpdate: this.props?.id !== undefined && this.props?.id !== null,
             id: "",
             name: "",
             phone: "",
@@ -55,13 +55,14 @@ export class ModalCreateOrUpdate extends React.Component {
         return (
             <Modal show={this.props.isShow} onHide={this.props.handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Create Student</Modal.Title>
+                    <Modal.Title>{this.state.isUpdate ? "Update" : "Create"} Student</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="form.id">
                             <Form.Label>Id</Form.Label>
                             <Form.Control
+                                data-testid="studendIdInput"
                                 type="text"
                                 placeholder="student ID"
                                 disabled={this.state.isUpdate}

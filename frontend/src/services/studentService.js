@@ -3,7 +3,6 @@ import { Student } from "../models/student";
 
 async function fetchStudent(id) {
   let endpoint = `http://${Config.host}${Config.studentPath}/${id}`;
-  console.log("request to:", endpoint)
   let bodyJson = await fetch(endpoint)
     .then((reponse) => { return reponse.json() });
   return new Student(bodyJson.id, bodyJson.name, bodyJson.phone);
@@ -11,7 +10,6 @@ async function fetchStudent(id) {
 
 async function fetchStudents() {
   let endpoint = `http://${Config.host}${Config.studentPath}`;
-  console.log("request to:", endpoint)
   let bodyJson = await fetch(endpoint)
     .then((reponse) => { return reponse.json() });
   return bodyJson.map((element) => { return new Student(element.id, element.name, element.phone) })

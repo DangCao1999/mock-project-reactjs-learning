@@ -42,7 +42,7 @@ export default class StudentPage extends React.Component {
     showModalCreateOrUpdateStudent = (student) => {
         this.setState({
             isShowModal: true,
-            studentIdEditing: student.id
+            studentIdEditing: student?.id
         });
     }
 
@@ -75,6 +75,7 @@ export default class StudentPage extends React.Component {
                 <div className='list-card-layout'>
                     {this.state.students.map((student) => {
                         return <AppCard
+                            data-testid="AppCard"
                             key={student.id + student.name + student.phone}
                             id={student.id}
                             name={student.name}

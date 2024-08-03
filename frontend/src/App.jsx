@@ -3,14 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import StudentPage from './pages/student/StudentPage.jsx';
 import Header from './components/header/Header.jsx';
-import { ModalCreateOrUpdate } from './components/modal-create-or-update/ModalCreateOrUpdate.jsx';
 
 function App() {
+  let title = "Student Management";
   return (
     <>
-      <Header></Header>
+      <Header title={title}></Header>
       <StudentPage> </StudentPage>
-      <ModalCreateOrUpdate></ModalCreateOrUpdate>
     </>
   );
 }
